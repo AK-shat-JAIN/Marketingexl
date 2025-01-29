@@ -8,7 +8,7 @@ const submitForm = async (req, res) => {
         const VALID_FIELDS = ['name', 'email', 'phone', 'packages', 'chooseService'];
         const isValidOperation = Object.keys(req.body).every((field) => VALID_FIELDS.includes(field));
         if (!isValidOperation) {
-            return res.status(400).send({ error: 'Invalid fields' });
+            return res.status(400).send ({ error: 'Invalid fields' });
         }
 
         // Check if user already present using email
@@ -25,7 +25,7 @@ const submitForm = async (req, res) => {
             chooseService
         });
         await form.save();
-        res.status(201).send(form);
+        res.status(201).send("Form submitted successfully");
     } catch (error) {
         res.status(400).send("Error submitting the form. Error: " + error);
     }
